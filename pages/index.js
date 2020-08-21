@@ -1,18 +1,24 @@
-import { useState } from 'react';
+import { useState } from "react";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Card from "../components/card";
+import GhostCard from "../components/ghostcard";
+import ReactPlaceholder from "react-placeholder";
 
 export default function Home() {
   const [id, setId] = useState(22);
+  const [ready, setReady] = useState(false);
   const [character, setCharacter] = useState({});
+
   const getRandomCharacter = async () => {
+    setReady(false);
     try {
       const result = await fetch(
         `https://rickandmortyapi.com/api/character/${id}`
       );
       setId(Math.floor(Math.random() * Math.floor(671)));
-      return setCharacter(await result.json());
+      setCharacter(await result.json());
+      setReady(true);
     } catch (error) {
       console.log(error);
     }
@@ -33,7 +39,12 @@ export default function Home() {
         </button>
 
         <div id={`result`}>
-          <Card character={character}></Card>
+          <ReactPlaceholder
+            ready={ready}
+            customPlaceholder={<GhostCard />}
+          >
+            <Card character={character} />
+          </ReactPlaceholder>
         </div>
       </main>
 
