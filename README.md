@@ -1,4 +1,4 @@
-This is a [#100Days100Projects'](https://www.florin-pop.com/blog/2019/09/100-days-100-projects) #1Day1Project version.
+This is a [#100Days100Projects'](https://www.florin-pop.com/blog/2019/09/100-days-100-projects) #1Day1Project version - ILAJNA(http://ilajna.co).
 
 ## Getting Started
 
